@@ -1,0 +1,14 @@
+# Tajne veci nikdy do repa (repo je verejne)
+*.keystore
+*.jks
+*.p12
+.env
+.env.*
+# Build
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+ios-expo/node_modules/
+ios-expo/.expo/
+dist/

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Vztah appky a webu (Digital Asset Links). Druha pulka je /.well-known/assetlinks.json na os.honestlead.cz. -->
+    <string name="assetStatements" translatable="false">
+    [{
+        \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+        \"target\": {
+            \"namespace\": \"web\",
+            \"site\": \"https://os.honestlead.cz\"
+        }
+    }]
+    </string>
+</resources>

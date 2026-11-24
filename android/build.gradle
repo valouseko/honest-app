@@ -1,0 +1,4 @@
+// Honest: Trusted Web Activity nad os.honestlead.cz (stejny zaklad jako Bubblewrap od Googlu).
+plugins {
+    id 'com.android.application' version '8.9.1' apply false
+}

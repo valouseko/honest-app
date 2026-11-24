@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "cz.honestlead.honest",
+      "sha256_cert_fingerprints": ["7F:26:38:32:87:3D:EB:5E:63:4C:24:65:17:27:DD:C2:CF:05:85:8C:A3:A7:E4:B4:B7:98:7F:B4:9A:6F:F3:3A"]
+    }
+  }
+]
