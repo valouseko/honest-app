@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Honest: chat Honest Lead v telefonu</title>
+<meta name="description" content="Appka Honest: Honest Chat z Honest OS v telefonu, s upozorněním na nové zprávy.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1f5eff;
+    --blue-dark: #1747c4;
+    --ink: #0f172a;
+    --ink-2: #475569;
+    --ink-3: #94a3b8;
+    --line: #e2e8f0;
+    --soft: #f4f7ff;
+    --bg: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 28px 0 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 17px; }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .hero { padding: 48px 0 32px; }
+  h1 { font-size: clamp(30px, 6vw, 42px); line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 14px; font-weight: 700; }
+  .lead { color: var(--ink-2); font-size: 18px; margin: 0 0 28px; max-width: 34em; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--blue); color: #fff; text-decoration: none; font-weight: 600;
+    padding: 16px 26px; border-radius: 12px; font-size: 17px; min-height: 56px;
+    transition: background .15s;
+  }
+  .btn:hover, .btn:focus-visible { background: var(--blue-dark); }
+  .btn svg { width: 20px; height: 20px; }
+  .meta { color: var(--ink-3); font-size: 14px; margin-top: 12px; }
+  .jump { margin-top: 20px; font-size: 15px; }
+  .jump a { color: var(--blue); text-decoration: none; font-weight: 500; }
+  section { padding: 36px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 24px; letter-spacing: -0.01em; margin: 0 0 6px; }
+  .sub { color: var(--ink-2); margin: 0 0 22px; }
+  ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; display: grid; gap: 14px; }
+  ol.steps li {
+    counter-increment: s; position: relative; padding: 16px 18px 16px 62px;
+    background: var(--soft); border-radius: 14px;
+  }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 16px; top: 15px;
+    width: 30px; height: 30px; border-radius: 50%; background: var(--blue); color: #fff;
+    font-weight: 600; font-size: 15px; display: grid; place-items: center;
+  }
+  ol.steps b { display: block; margin-bottom: 2px; }
+  ol.steps span { color: var(--ink-2); font-size: 15px; }
+  .note { border-left: 3px solid var(--blue); padding: 4px 0 4px 14px; color: var(--ink-2); font-size: 15px; margin: 22px 0 0; }
+  .card { border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-top: 18px; }
+  .card h3 { margin: 0 0 6px; font-size: 17px; }
+  .card p { margin: 0; color: var(--ink-2); font-size: 15px; }
+  .pill { display: inline-block; font-size: 12px; font-weight: 600; color: var(--blue); background: var(--soft); border-radius: 99px; padding: 3px 10px; margin-bottom: 8px; }
+  details { border-bottom: 1px solid var(--line); padding: 14px 0; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { color: var(--ink-2); margin: 8px 0 0; font-size: 15px; }
+  footer { padding: 30px 0 40px; color: var(--ink-3); font-size: 13px; border-top: 1px solid var(--line); }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; background: var(--soft); padding: 1px 5px; border-radius: 5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><img src="icon.svg" alt="">Honest</div>
+  </header>
+
+  <div class="hero">
+    <h1>Honest Chat v telefonu</h1>
+    <p class="lead">Appka pro tým Honest Lead. Otevře rovnou chat v Honest OS a pošle upozornění na novou zprávu, i když je appka zavřená.</p>
+    <a class="btn" id="download" href="https://github.com/valouseko/honest-app/releases/latest/download/honest.apk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Stáhnout pro Android
+    </a>
+    <div class="meta" id="version">Soubor honest.apk, necelý 1 MB</div>
+    <div class="jump">Máš iPhone? <a href="#iphone">Návod pro iPhone</a></div>
+  </div>
+
+  <section id="android">
+    <h2>Android: instalace za minutu</h2>
+    <p class="sub">Appka není v Google Play, instaluje se přímo z tohoto odkazu. Je to bezpečné, je podepsaná klíčem Honest Lead.</p>
+    <ol class="steps">
+      <li><b>Klepni na „Stáhnout pro Android“</b><span>Nejlépe v Chromu. Když se zeptá, jestli soubor opravdu stáhnout, dej Stáhnout.</span></li>
+      <li><b>Otevři stažený soubor honest.apk</b><span>Z upozornění o stažení, nebo v aplikaci Soubory › Stažené.</span></li>
+      <li><b>Povol instalaci z prohlížeče</b><span>Telefon napíše, že instalace z tohoto zdroje není povolená. Klepni Nastavení, zapni „Povolit z tohoto zdroje“ a vrať se zpět. Když se ozve Play Protect, dej Přesto nainstalovat.</span></li>
+      <li><b>Nainstaluj, otevři Honest a přihlas se</b><span>Stejný e-mail a heslo jako do Honest OS. V chatu klepni na ozubené kolo › Zapnout upozornění › Povolit.</span></li>
+    </ol>
+    <p class="note">Potřebuješ Chrome (na Androidu skoro vždycky je). Když už jsi v Chromu přihlášený do Honest OS, appka tě přihlásí sama.</p>
+  </section>
+
+  <section id="iphone">
+    <h2>iPhone</h2>
+    <p class="sub">Dnes bez instalace z App Store: Honest OS si přidáš na plochu a upozornění fungují stejně (iOS 16.4 a novější).</p>
+    <ol class="steps">
+      <li><b>Otevři v Safari os.honestlead.cz</b><span>Musí to být Safari. Přihlas se.</span></li>
+      <li><b>Sdílet › Přidat na plochu</b><span>Ikona čtverečku se šipkou dole uprostřed, pak „Přidat na plochu“ a Přidat.</span></li>
+      <li><b>Otevři Honest OS z plochy</b><span>Ne ze Safari, ale z nové ikony na ploše. Přihlas se znovu, pokud se zeptá.</span></li>
+      <li><b>Zapni upozornění</b><span>Honest Chat › ozubené kolo › Zapnout upozornění › Povolit.</span></li>
+    </ol>
+    <div class="card" id="testflight">
+      <span class="pill">Připravujeme</span>
+      <h3>Appka přes TestFlight</h3>
+      <p id="testflight-text">Až bude: nainstaluj z App Store aplikaci TestFlight, otevři odkaz, který tu bude, a klepni Install. Do té doby použij postup výš.</p>
+    </div>
+  </section>
+
+  <section id="aktualizace">
+    <h2>Aktualizace</h2>
+    <p class="sub">Skoro nikdy nic neděláš: chat a celý Honest OS se aktualizují samy z webu.</p>
+    <p>Jen výjimečně vyjde nová verze appky. Appka ti pak sama pošle upozornění „Nová verze Honest“. Klepni na něj (nebo znovu na Stáhnout pro Android výš), otevři soubor a dej Aktualizovat. Instaluje se přes starou verzi, nic neodinstalováváš a nic se neztratí.</p>
+  </section>
+
+  <section id="potize">
+    <h2>Když něco nejde</h2>
+    <details><summary>Nechodí upozornění</summary><p>Nastavení › Aplikace › Honest › Oznámení: zapnout. V Honest Chatu ozubené kolo › Zapnout upozornění. Na některých telefonech (Xiaomi, Huawei, Samsung) ještě Nastavení › Aplikace › Chrome › Baterie: bez omezení, protože upozornění doručuje Chrome.</p></details>
+    <details><summary>Nahoře je vidět lišta s adresou</summary><p>Appka ještě není spárovaná s webem os.honestlead.cz. Funguje normálně, lišta zmizí po aktualizaci Honest OS na serveru.</p></details>
+    <details><summary>Instalace hlásí „Aplikace nebyla nainstalována“</summary><p>Většinou je v telefonu verze podepsaná jinak (třeba testovací). Odinstaluj starou appku Honest a nainstaluj znovu. Běžné aktualizace tohle nepotřebují.</p></details>
+    <details><summary>Chci se odhlásit nebo přepnout účet</summary><p>V Honest OS levý panel › Odhlásit. Přihlášení je společné s Chromem v telefonu.</p></details>
+  </section>
+
+  <footer>
+    Honest Lead · <a href="https://github.com/valouseko/honest-app/releases" style="color:inherit">všechny verze</a>
+  </footer>
+</div>
+<script>
+  // Verze a velikost poslední APK z GitHub Releases (bez přihlášení). Když API neodpoví, zůstane výchozí text.
+  fetch("https://api.github.com/repos/valouseko/honest-app/releases/latest")
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (rel) {
+      if (!rel) return;
+      var apk = (rel.assets || []).filter(function (a) { return a.name === "honest.apk"; })[0];
+      var date = new Date(rel.published_at).toLocaleDateString("cs-CZ");
+      var size = apk ? " · " + (apk.size / 1048576).toFixed(1).replace(".", ",") + " MB" : "";
+      document.getElementById("version").textContent = "Verze " + String(rel.tag_name).replace(/^v/, "") + " z " + date + size;
+    })
+    .catch(function () {});
+  // Odkaz na TestFlight se doplní sem, až bude (docs/IOS-TESTFLIGHT.md, krok 9).
+  var TESTFLIGHT_URL = "";
+  if (TESTFLIGHT_URL) {
+    var card = document.getElementById("testflight");
+    card.querySelector(".pill").textContent = "Nové";
+    document.getElementById("testflight-text").innerHTML =
+      'Nainstaluj z App Store aplikaci TestFlight, pak otevři <a href="' + TESTFLIGHT_URL + '">tento odkaz</a> a klepni Install.';
+  }
+</script>
+</body>
+</html>

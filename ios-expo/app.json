@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Honest",
+    "slug": "honest",
+    "owner": "honestandrew",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#F7F7F9",
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F7F7F9"
+    },
+    "ios": {
+      "bundleIdentifier": "cz.honestlead.honest",
+      "supportsTablet": false,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSPhotoLibraryUsageDescription": "Honest potřebuje přístup k fotkám, abys mohl poslat obrázek do chatu.",
+        "NSCameraUsageDescription": "Honest potřebuje fotoaparát, abys mohl vyfotit a poslat obrázek do chatu."
+      }
+    },
+    "android": {
+      "package": "cz.honestlead.honest.expo"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#4F2F8F"
+        }
+      ]
+    ],
+    "extra": {
+      "startUrl": "https://os.honestlead.cz/#lab-chat",
+      "host": "os.honestlead.cz"
+    }
+  }
+}

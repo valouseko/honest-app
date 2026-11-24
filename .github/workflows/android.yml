@@ -69,6 +69,10 @@ jobs:
           "$APKSIGNER" verify --print-certs "$APK" | tee certs.txt
           EXPECTED=$(tr -d ':\r\n ' < signing/fingerprint-sha256.txt | tr 'A-F' 'a-f')
           grep -q "SHA-256 digest: $EXPECTED" certs.txt || { echo "Otisk podpisu nesedi s signing/fingerprint-sha256.txt"; exit 1; }
+          # Co je v APK (balicek, verze, opravneni, spousteci aktivita) do logu.
+          AAPT2=$(ls "$SDK"/build-tools/*/aapt2 | sort -V | tail -1)
+          "$AAPT2" dump badging "$APK" | grep -E "^(package|uses-permission|launchable-activity|application-label|sdkVersion|targetSdkVersion)"
+          "$AAPT2" dump badging "$APK" | grep -q "package: name='cz.honestlead.honest'" || { echo "Spatny balicek"; exit 1; }
           mkdir -p dist
           cp "$APK" dist/honest.apk
           printf '{"versionCode":%s,"versionName":"%s","apk":"https://github.com/%s/releases/latest/download/honest.apk"}\n' \
