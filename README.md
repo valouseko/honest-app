@@ -1,4 +1,4 @@
-# Honest: mobilní appka Honest Chatu (Honest OS)
+# Honest: mobilní appka Honest OS (agentura i klienti)
 
 Appka Honest Lead: celý Honest OS (https://os.honestlead.cz) v telefonu. Po přihlášení agentura (Ondra, Míša) dostane
 HonestOS 2 se vším jako na počítači, klient jen svůj portál (zprávy, kampaně, co dodat, nahrávání). Upozornění na
