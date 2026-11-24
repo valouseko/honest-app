@@ -2,9 +2,11 @@ plugins {
     id 'com.android.application'
 }
 
-// Co appka otevira. Zmena adresy = nova APK (a nove assetlinks, kdyby se menila domena).
+// Co appka otevira: cely Honest OS. Server podle prihlaseni posle agenturu do HonestOS 2 a klienta do jeho portalu.
+// Scope = cela domena (Digital Asset Links pro os.honestlead.cz), takze prechody mezi sekcemi zustavaji v appce.
+// Zmena adresy = nova APK (a nove assetlinks, kdyby se menila domena).
 def host = 'os.honestlead.cz'
-def launchPath = '/#lab-chat'
+def launchPath = '/'
 
 // Verzi doplni CI z cisla behu (viz .github/workflows/android.yml), lokalne 1.
 def vCode = (System.getenv('VERSION_CODE') ?: '1').toInteger()

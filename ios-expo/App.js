@@ -1,4 +1,5 @@
-// Honest pro iPhone: Honest OS (os.honestlead.cz) ve WebView, otevřený rovnou na Honest Chatu.
+// Honest pro iPhone: celý Honest OS (os.honestlead.cz) ve WebView. Server podle přihlášení ukáže agentuře HonestOS 2
+// a klientovi jeho portál.
 // Na iOS ve WebView nefunguje Web Push, proto appka žádá o vlastní push token (Expo/APNs) a předá ho stránce
 // událostí "honest-native-push". Serverová část (uložit token, posílat přes Expo Push) zatím NENÍ: viz
 // docs/IOS-TESTFLIGHT.md, sekce Upozornění. Bez ní chat funguje, upozornění chodí přes Telegram a e-mail.
@@ -12,7 +13,7 @@ import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
 
 const extra = Constants.expoConfig?.extra ?? {};
-const START_URL = extra.startUrl ?? "https://os.honestlead.cz/#lab-chat";
+const START_URL = extra.startUrl ?? "https://os.honestlead.cz/";
 const HOST = extra.host ?? "os.honestlead.cz";
 
 Notifications.setNotificationHandler({
