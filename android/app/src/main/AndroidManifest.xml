@@ -4,6 +4,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Dlouha vibrace u urgentnich zprav (kanal Urgentní zprávy v DelegationService). -->
+    <uses-permission android:name="android.permission.VIBRATE" />
     <!-- Jen kvuli kontrole nove verze (version.json z GitHub Releases). -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -97,6 +99,10 @@
             <meta-data
                 android:name="android.support.customtabs.trusted.SMALL_ICON"
                 android:resource="@drawable/ic_notification_icon" />
+            <!-- Bezne zpravy z chatu vyskoci nahore na obrazovce (kanal s vysokou dulezitosti), ne jen tise v liste. -->
+            <meta-data
+                android:name="androidx.browser.trusted.USE_HIGH_PRI_NOTIFICATIONS"
+                android:value="true" />
             <intent-filter>
                 <action android:name="android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE" />
                 <category android:name="android.intent.category.DEFAULT" />
