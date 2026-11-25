@@ -48,7 +48,9 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            // R8 prejmenoval tridy androidbrowserhelper, ktere Android hleda podle jmena (setComponentEnabledSetting)
+            // -> pad hned po spusteni ("Component class P.d does not exist"). Appka je mala, zmensovani nepotrebuje.
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             if (System.getenv('KEYSTORE_FILE')) {
                 signingConfig signingConfigs.release
