@@ -25,10 +25,31 @@ import java.net.URL;
  */
 final class UpdateCheck {
     private static final String PREFS = "honest_update";
-    private static final long INTERVAL_MS = 6L * 60 * 60 * 1000;
+    // Kontrola nejvys jednou za 30 minut (pri spusteni appky), "Pozdeji" odlozi dotaz o 12 hodin.
+    private static final long INTERVAL_MS = 30L * 60 * 1000;
+    private static final long SNOOZE_MS = 12L * 60 * 60 * 1000;
     private static final String CHANNEL = "honest_update";
 
     private UpdateCheck() {}
+
+    /** Nazev novejsi verze, o ktere uz vime z predchozi kontroly a ktera neni odlozena; jinak null. */
+    static String pendingName(Context context) {
+        try {
+            SharedPreferences prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+            long latest = prefs.getLong("latestCode", 0L);
+            if (latest <= currentVersionCode(context)) return null;
+            if (prefs.getLong("snoozedCode", 0L) == latest && System.currentTimeMillis() < prefs.getLong("snoozedUntil", 0L)) return null;
+            return prefs.getString("latestName", "");
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    static void snooze(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+        prefs.edit().putLong("snoozedCode", prefs.getLong("latestCode", 0L))
+                .putLong("snoozedUntil", System.currentTimeMillis() + SNOOZE_MS).apply();
+    }
 
     static void maybeRun(Context context) {
         final Context app = context.getApplicationContext();
@@ -50,8 +71,9 @@ final class UpdateCheck {
             JSONObject json = new JSONObject(read(conn.getInputStream()));
             long latest = json.optLong("versionCode", 0L);
             String name = json.optString("versionName", "");
-            if (latest <= currentVersionCode(context)) return;
             SharedPreferences prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+            prefs.edit().putLong("latestCode", latest).putString("latestName", name).apply();
+            if (latest <= currentVersionCode(context)) return;
             if (prefs.getLong("notified", 0L) == latest) return;
             prefs.edit().putLong("notified", latest).apply();
             notifyUpdate(context, name);
