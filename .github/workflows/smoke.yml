@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        api: [35, 36, 37]
+        api: ["35", "36", "37.0"] # 37.0 = Android 17 (Google ho tak jmenuje v sdkmanageru)
     steps:
       - name: KVM
         run: |
